@@ -1,0 +1,17 @@
+header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  background-color: lightcyan;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  font-size: 30px;
+}
+
+.header-item {
+  text-decoration: none;
+  color: #000;
+}
