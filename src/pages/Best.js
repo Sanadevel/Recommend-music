@@ -21,7 +21,7 @@ export default function Best() {
 
   return (
     <>
-      <div>뭐야시발</div>
+      <Albums />
     </>
   );
 }
