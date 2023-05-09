@@ -1,17 +1,42 @@
+.header {
+  margin: 0;
+  padding: 0;
+}
+
+.header-box {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+}
+
+.header-text {
+  position: absolute;
+  top: 30%;
+  font-size: 8.5rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 60%;
+}
+
 header {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 70px;
-  background-color: lightcyan;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  background-color: #131416;
   font-size: 30px;
+}
+.header-img {
+  width: 100vw;
+  margin-top: -80px;
+  opacity: 60%;
 }
 
 .header-item {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }

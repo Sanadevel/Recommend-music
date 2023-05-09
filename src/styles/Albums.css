@@ -4,6 +4,7 @@ body {
     format("woff");
   font-weight: 600;
   font-style: normal;
+  height: 300vh;
 }
 
 .album-info {
