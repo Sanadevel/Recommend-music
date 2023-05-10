@@ -1,0 +1,55 @@
+.switch {
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  z-index: 2;
+}
+
+.switch-text {
+  font-size: 20px;
+  text-align: center;
+}
+
+#switch {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+label {
+  display: inline-block;
+  width: 5em;
+  height: 30px;
+  border: 3px solid #000;
+  border-radius: 2em;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+label:hover {
+  background-color: #a3a3a3;
+}
+
+.switch-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: black;
+  display: inline-block;
+  margin-top: 2.5px;
+  margin-left: 2.5px;
+  transition: 0.3s;
+}
+
+#switch:checked + label {
+  background-color: #000;
+}
+
+#switch:checked + label:hover {
+  background-color: #181818;
+}
+
+#switch:checked + label .switch-button {
+  margin-left: 3.2em;
+  background-color: #fff;
+}

@@ -3,3 +3,8 @@
   left: 0px;
   top: 0px;
 }
+
+#switch:checked + #root {
+  background-color: black;
+  color: white;
+}

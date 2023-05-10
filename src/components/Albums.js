@@ -6,15 +6,17 @@ export default function Albums({ data }) {
   const album = data;
 
   return (
-    <div className="album-info">
-      <div className="artist">
-        {album.artist} - {album.album}
-        <img
-          className="album-cover"
-          src={album.imgUrl ? album.imgUrl : NoContents}
-          alt="AlbumCover"
-        />
-        {album.rate}
+    <div className="albums">
+      <div className="album-info">
+        <div className="artist">
+          {album.artist} - {album.album}
+          <img
+            className="album-cover"
+            src={album.imgUrl ? album.imgUrl : NoContents}
+            alt="AlbumCover"
+          />
+          {album.rate}
+        </div>
       </div>
     </div>
   );

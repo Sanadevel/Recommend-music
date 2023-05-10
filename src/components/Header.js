@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import topster from "../img/Topster.png";
+import whiteTopster from "../img/TopsterWhite.png";
+import blacktopster from "../img/TopsterBlack.png";
 
-export default function Header() {
+export default function Header({ isdark }) {
   return (
     <div className="header">
       <div className="header-box">
-        <img className="header-img" src={topster} />
+        <img
+          className="header-img"
+          src={isdark ? whiteTopster : blacktopster}
+        />
         <div className="header-text">새너식 음악추천</div>
       </div>
       <header>
