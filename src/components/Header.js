@@ -9,19 +9,19 @@ export default function Header({ isdark }) {
       <div className="header-box">
         <img
           className="header-img"
-          src={isdark ? whiteTopster : blacktopster}
+          src={isdark ? blacktopster : whiteTopster}
         />
         <div className="header-text">새너식 음악추천</div>
       </div>
-      <header>
+      <header className={isdark ? "header-bg-black" : "header-bg-white"}>
         <Link className="header-item" to="/">
           홈으로
         </Link>
-        <Link className="header-item" to="/Best">
-          최고 앨범
-        </Link>
         <Link className="header-item" to="/Favorite">
           최애 앨범
+        </Link>
+        <Link className="header-item" to="/Write">
+          앨범 추가
         </Link>
       </header>
     </div>

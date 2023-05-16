@@ -10,13 +10,14 @@ export default function Albums({ data }) {
       <div className="album-info">
         <div className="artist">
           {album.artist} - {album.album}
-          <img
-            className="album-cover"
-            src={album.imgUrl ? album.imgUrl : NoContents}
-            alt="AlbumCover"
-          />
-          {album.rate}
         </div>
+        <hr />
+        <img
+          className="album-cover"
+          src={album.imgUrl ? album.imgUrl : NoContents}
+          alt="AlbumCover"
+        />
+        {album.rate}
       </div>
     </div>
   );

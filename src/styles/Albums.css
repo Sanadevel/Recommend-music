@@ -1,12 +1,22 @@
+.albums {
+  margin-left: 60px;
+}
+
 .album-info {
   display: flex;
+  flex-direction: column;
   width: 100vw;
   margin-top: 100px;
   font-size: 50px;
 }
 
+hr {
+  width: 100vw;
+  align-items: baseline;
+}
+
 .album-cover {
   display: block;
-  width: 10em;
+  width: 15em;
   height: auto;
 }

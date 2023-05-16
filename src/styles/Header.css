@@ -27,9 +27,18 @@ header {
   align-items: center;
   justify-content: space-around;
   height: 70px;
-  background-color: #131416;
   font-size: 30px;
 }
+
+.header-bg-dark {
+  background-color: #000;
+  color: #fff;
+}
+.header-bg-white {
+  background-color: #cccccc;
+  color: #000;
+}
+
 .header-img {
   width: 100vw;
   margin-top: -80px;
@@ -38,5 +47,5 @@ header {
 
 .header-item {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
 }

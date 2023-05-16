@@ -1,10 +1,10 @@
+body {
+  overflow-x: hidden;
+  scroll-snap-type: mandatory;
+}
+
 #root {
   position: absolute;
   left: 0px;
   top: 0px;
-}
-
-#switch:checked + #root {
-  background-color: black;
-  color: white;
 }

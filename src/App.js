@@ -1,11 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Best from "./pages/Best";
+import Write from "./pages/Write";
 import Home from "./pages/Home";
 import Favorite from "./pages/Favorite";
 import Header from "./components/Header";
 import { useEffect, useState } from "react";
 import Switch from "./components/Switch";
+import axios from "axios";
 
 export default function App() {
   const [isdark, setIsdark] = useState(false);
@@ -22,7 +23,7 @@ export default function App() {
         <Switch isdark={isdark} onClick={setIsdark} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Best" element={<Best />} />
+          <Route path="/Best" element={<Write />} />
           <Route path="/Favorite" element={<Favorite />} />
         </Routes>
       </BrowserRouter>

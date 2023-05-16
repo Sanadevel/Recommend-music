@@ -10,7 +10,7 @@ export default function Favorite() {
       rate: "",
       singleReview: "",
       review: "",
-      id: 0,
+      postid: 0,
     },
     {
       artist: "Lamp",
@@ -20,7 +20,7 @@ export default function Favorite() {
       rate: "[9.5/10]",
       singleReview: "가장 따스하고 아름다운 감정의 앨범",
       review: "평가",
-      id: 1,
+      postid: 1,
     },
     {
       artist: "XXX",
@@ -30,7 +30,7 @@ export default function Favorite() {
       rate: "[8/10]",
       singleReview: "매운데 중독성있는 한끼 식사를 마친 기분",
       review: "",
-      id: 2,
+      postid: 2,
     },
     {
       artist: "신세이 카맛테짱",
@@ -40,7 +40,7 @@ export default function Favorite() {
       rate: "[7.5/10]",
       singleReview: "날 것의 앨범, 내지르는 앨범, 찢어내는 앨범",
       review: "",
-      id: 3,
+      postid: 3,
     },
     {
       artist: "The Beatles",
@@ -51,7 +51,7 @@ export default function Favorite() {
       singleReview:
         "일관성을 만들어낸 밴드가 일관성을 고려치 않은 앨범에 존재하는 하나의 일관성, 명곡",
       review: "",
-      id: 4,
+      postid: 4,
     },
     {
       artist: "Sweet Trip",
@@ -60,7 +60,7 @@ export default function Favorite() {
       rate: "[8.5/10]",
       singleReview: "20년이 지났지만 대체제가 나오지 않는 앨범",
       review: "",
-      id: 5,
+      postid: 5,
     },
   ];
 
@@ -73,7 +73,7 @@ export default function Favorite() {
   function checkedState(checked) {
     console.log(checked);
   }
-
+  
   const provideData = () => {
     let getRandomIndex = parseInt(Math.random() * favoriteAlbums.length);
     setData(favoriteAlbums[getRandomIndex]);

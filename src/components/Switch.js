@@ -31,7 +31,7 @@ export default function Switch({ onClick, isdark }) {
         onChange={onChange}
         onClick={(e) => onClick(!isdark)}
       />
-      <label for="switch">
+      <label htmlFor="switch">
         <span className="switch-button"></span>
       </label>
     </div>
