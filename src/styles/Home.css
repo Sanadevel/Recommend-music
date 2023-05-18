@@ -1,0 +1,28 @@
+.homeCurAlbum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.curAlbumName {
+  font-size: 30px;
+}
+
+.hr {
+  width: 900px;
+}
+
+.curAlbumImg {
+  margin-top: 30px;
+  width: 600px;
+  height: auto;
+}
+
+.curAlbumRate {
+  margin-top: 20px;
+  font-size: 50px;
+}
+.curAlbumReview {
+  font-size: 20px;
+}

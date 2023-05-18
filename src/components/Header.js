@@ -4,6 +4,8 @@ import whiteTopster from "../img/TopsterWhite.png";
 import blacktopster from "../img/TopsterBlack.png";
 
 export default function Header({ isdark }) {
+  
+
   return (
     <div className="header">
       <div className="header-box">

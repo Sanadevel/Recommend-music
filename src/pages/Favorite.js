@@ -73,7 +73,7 @@ export default function Favorite() {
   function checkedState(checked) {
     console.log(checked);
   }
-  
+
   const provideData = () => {
     let getRandomIndex = parseInt(Math.random() * favoriteAlbums.length);
     setData(favoriteAlbums[getRandomIndex]);

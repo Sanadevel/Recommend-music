@@ -6,13 +6,14 @@ import Favorite from "./pages/Favorite";
 import Header from "./components/Header";
 import { useEffect, useState } from "react";
 import Switch from "./components/Switch";
-import axios from "axios";
 
 export default function App() {
   const [isdark, setIsdark] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      console.log("scrolled");
+      if (window.scrollY > 651) {
+      } else {
+      }
     });
   }, []);
 
