@@ -4,8 +4,6 @@ import whiteTopster from "../img/TopsterWhite.png";
 import blacktopster from "../img/TopsterBlack.png";
 
 export default function Header({ isdark }) {
-  
-
   return (
     <div className="header">
       <div className="header-box">
@@ -20,7 +18,7 @@ export default function Header({ isdark }) {
           홈으로
         </Link>
         <Link className="header-item" to="/Favorite">
-          최애 앨범
+          랜덤 앨범 추천
         </Link>
         <Link className="header-item" to="/Write">
           앨범 추가

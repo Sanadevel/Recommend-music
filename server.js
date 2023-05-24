@@ -16,11 +16,13 @@ const pool = mysql.createPool({
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(
   cors({
     origin: "http://localhost:3000",
   })
 );
+
 const getConn = async () => {
   return await pool.getConnection(async (conn) => conn);
 };
@@ -37,7 +39,17 @@ app.get("/testSelect", async (req, res) => {
   res.send(rows);
 });
 
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.post("/addalbum", async (req, res) => {
+  const conn = await getConn();
+  console.log(res);
+  console.log(req);
+
+  res.send(res);
+  res.send(req);
+  //const query = `insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values ('${}', '${}', '${}', '${}', '${}', '${}');`;
+});
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);

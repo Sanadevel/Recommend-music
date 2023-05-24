@@ -2,23 +2,22 @@ import { useEffect, useState } from "react";
 import "../styles/Albums.css";
 import NoContents from "../img/NoContents.png";
 
-export default function Albums({ data }) {
-  const album = data;
-
+export default function Albums({ album, provideData }) {
   return (
     <div className="albums">
       <div className="album-info">
         <div className="artist">
-          {album.artist} - {album.album}
+          {album.artist} - {album.albumname}
         </div>
         <hr />
         <img
           className="album-cover"
-          src={album.imgUrl ? album.imgUrl : NoContents}
+          src={album.imgurl ? album.imgurl : NoContents}
           alt="AlbumCover"
         />
         {album.rate}
       </div>
+      <button onClick={provideData}>다른 앨범 추천받기!</button>
     </div>
   );
 }
