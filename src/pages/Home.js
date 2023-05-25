@@ -35,10 +35,8 @@ export default function Home({ isdark, albums }) {
       setCurIndex(curIndex - 1);
       setCurAlbum(albums[curIndex - 1]);
     }
-    console.log(curIndex);
+    console.log(curAlbum.imgurl);
   };
-
-  useEffect(() => {});
 
   return (
     <div className="albumContainer">

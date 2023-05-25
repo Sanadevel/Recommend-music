@@ -6,6 +6,8 @@ const PORT = "8090";
 const cors = require("cors");
 
 const mysql = require("mysql2/promise");
+const { request } = require("http");
+const e = require("express");
 
 const pool = mysql.createPool({
   host: "localhost",
@@ -41,12 +43,13 @@ app.get("/testSelect", async (req, res) => {
 
 app.post("/addalbum", async (req, res) => {
   const conn = await getConn();
-  console.log(res);
-  console.log(req);
-
-  res.send(res);
-  res.send(req);
-  //const query = `insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values ('${}', '${}', '${}', '${}', '${}', '${}');`;
+  const { artist, albumname, imgurl, rate, singleReview, review } = req.body;
+  const sql =
+    "insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values (?, ?, ?, ?, ?, ?);";
+  const params = [artist, albumname, imgurl, rate, singleReview, review];
+  conn.query(sql, req.body, (rows, fields) => {
+    console.log(rows);
+  });
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
