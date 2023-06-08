@@ -1,0 +1,39 @@
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input,
+textarea {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+input {
+  width: 300px;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+textarea {
+  width: 1600px;
+  height: 20em;
+  padding-top: 1em;
+  padding-left: 1em;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 160px;
+  margin-right: 160px;
+  border: 1px solid black;
+  resize: none;
+}

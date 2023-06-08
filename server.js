@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 const PORT = "8090";
 const cors = require("cors");
 
-const mysql = require("mysql2/promise");
-const { request } = require("http");
-const e = require("express");
+const mysql = require("mysql2");
+const { useState } = require("react");
+const { setDefaultResultOrder } = require("dns");
 
-const pool = mysql.createPool({
+const connection = mysql.createConnection({
   host: "localhost",
   port: "3306",
   user: "albumDB",
@@ -17,7 +17,12 @@ const pool = mysql.createPool({
   database: "albumDB",
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+connection.connect((e) => {
+  if (e) console.log(e);
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
   cors({
@@ -25,34 +30,34 @@ app.use(
   })
 );
 
-const getConn = async () => {
-  return await pool.getConnection(async (conn) => conn);
-};
-
 app.get("/", async (req, res) => {
   res.send("hello");
 });
 
-app.get("/testSelect", async (req, res) => {
-  const conn = await getConn();
-  const query = "SELECT * FROM Rec_Album";
-  let [rows, fields] = await conn.query(query, []);
-  conn.release();
-  res.send(rows);
-});
-
-app.post("/addalbum", async (req, res) => {
-  const conn = await getConn();
-  const { artist, albumname, imgurl, rate, singleReview, review } = req.body;
-  const sql =
-    "insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values (?, ?, ?, ?, ?, ?);";
-  const params = [artist, albumname, imgurl, rate, singleReview, review];
-  conn.query(sql, req.body, (rows, fields) => {
-    console.log(rows);
+app.get("/testSelect", (req, res) => {
+  const sql = "SELECT * FROM Rec_Album";
+  connection.query(sql, (e, r, f) => {
+    if (e) throw e;
+    res.send(r);
   });
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.post("/addalbum", (req, res) => {
+  const artist = req.body.artist;
+  const albumname = req.body.albumname;
+  const imgurl = req.body.imgurl;
+  const rate = req.body.rate;
+  const singleReview = req.body.singleReview;
+  const review = req.body.review;
+
+  console.log([artist, albumname, imgurl, rate, singleReview, review]);
+
+  const sql = `insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values ('${artist}', '${albumname}', '${imgurl}', '${rate}', '${singleReview}', '${review}')`;
+  connection.query(sql, (e, r, f) => {
+    if (e) throw e;
+    console.log(r);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);

@@ -56,7 +56,7 @@ export default function Home({ isdark, albums }) {
             {curAlbum.artist} - {curAlbum.albumname}
           </div>
           <Link data={curAlbum} to="/Albums">
-            <img src={curAlbum.imgurl} className="curAlbumImg" />
+            <img src={curAlbum.imgurl == null ? noContent : curAlbum.imgurl} className="curAlbumImg" />
           </Link>
           <div className="curAlbumRate">{curAlbum.rate}</div>
           <hr className="hr" />
