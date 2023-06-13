@@ -13,6 +13,10 @@ export default function Switch({ onClick, isdark }) {
   };
 
   useEffect(() => {
+    onChecked(false);
+  }, []);
+
+  useEffect(() => {
     const body = document.getElementById("body");
     if (document.getElementById("switch").checked == true) {
       body.className = "dark";
@@ -37,3 +41,5 @@ export default function Switch({ onClick, isdark }) {
     </div>
   );
 }
+
+//다크모드 새로고침시 유지하는 코드 넣어야함

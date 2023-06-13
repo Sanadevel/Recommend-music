@@ -4,10 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = "8090";
 const cors = require("cors");
-
 const mysql = require("mysql2");
-const { useState } = require("react");
-const { setDefaultResultOrder } = require("dns");
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -42,6 +39,15 @@ app.get("/testSelect", (req, res) => {
   });
 });
 
+app.post("/AlbumSelect", (req, res) => {
+  const id = req.body.postid.key;
+  const sql = `SELECT * FROM Rec_Album WHERE postid = ${id}`;
+  connection.query(sql, (e, r, f) => {
+    if (e) throw e;
+    res.send(r);
+  });
+});
+
 app.post("/addalbum", (req, res) => {
   const artist = req.body.artist;
   const albumname = req.body.albumname;
@@ -50,9 +56,45 @@ app.post("/addalbum", (req, res) => {
   const singleReview = req.body.singleReview;
   const review = req.body.review;
 
-  console.log([artist, albumname, imgurl, rate, singleReview, review]);
+  if (
+    artist == "" ||
+    albumname == "" ||
+    imgurl == "" ||
+    rate == "" ||
+    singleReview == ""
+  ) {
+    console.log("somethings wrong");
+    return;
+  } else {
+    console.log([artist, albumname, imgurl, rate, singleReview, review]);
+    const sql = `insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values ('${artist}', '${albumname}', '${imgurl}', '${rate}', '${singleReview}', '${review}')`;
+    connection.query(sql, (e, r, f) => {
+      if (e) throw e;
+      console.log(r);
+    });
+  }
+});
 
-  const sql = `insert into rec_album (artist, albumname, imgurl, rate, singlereview, review) values ('${artist}', '${albumname}', '${imgurl}', '${rate}', '${singleReview}', '${review}')`;
+app.post("/UpdateAlbum", (req, res) => {
+  const artist = req.body.artist;
+  const albumname = req.body.albumname;
+  const imgurl = req.body.imgurl;
+  const rate = req.body.rate;
+  const singleReview = req.body.singleReview;
+  const review = req.body.review;
+  const postid = req.body.postid;
+
+  console.log([artist, albumname, imgurl, rate, singleReview, review]);
+  const sql = `UPDATE rec_album SET artist = '${artist}', albumname =  '${albumname}', imgurl = '${imgurl}', rate = '${rate}', singlereview = '${singleReview}', review = '${review}' where postid = ${postid}`;
+  connection.query(sql, (e, r, f) => {
+    if (e) throw e;
+    console.log(r);
+  });
+});
+
+app.post("/DeleteAlbum", (req, res) => {
+  const postid = req.body.data;
+  const sql = `Delete from rec_album WHERE postid = ${postid}`;
   connection.query(sql, (e, r, f) => {
     if (e) throw e;
     console.log(r);

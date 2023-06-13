@@ -20,3 +20,28 @@ hr {
   width: 15em;
   height: auto;
 }
+
+#rec-button {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 40px;
+  width: 30em;
+  height: 3em;
+  border-radius: 10px;
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rec-button-white {
+  background-color: #000;
+  color: #fff;
+}
+.rec-button-dark {
+  background-color: #fff;
+  color: #000;
+}

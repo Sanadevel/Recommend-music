@@ -8,6 +8,7 @@
 .switch-text {
   font-size: 20px;
   text-align: center;
+  padding-left: 200px;
 }
 
 #switch {
@@ -24,6 +25,7 @@ label {
   border-radius: 2em;
   background-color: #fff;
   transition: 0.3s;
+  margin-left: 0px;
 }
 
 label:hover {

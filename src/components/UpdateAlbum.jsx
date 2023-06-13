@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Write.css";
+import { useParams } from "react-router-dom";
 
 export default function Write() {
   const [artist, setArtist] = useState("");
@@ -9,11 +10,12 @@ export default function Write() {
   const [rate, setRate] = useState("");
   const [singleReview, setSingleReview] = useState("");
   const [review, setReview] = useState("");
+  const postid = useParams();
 
   const postAlbum = async () => {
     await axios({
       method: "post",
-      url: "http://localhost:8090/addalbum",
+      url: "http://localhost:8090/UpdateAlbum",
       contentType: "application/json",
       data: {
         artist: artist,
@@ -22,15 +24,36 @@ export default function Write() {
         rate: rate,
         singleReview: singleReview,
         review: review,
+        postid: postid,
       },
     });
   };
 
-  const onSubmit = (event) => {
+  const getAlbum = async () => {
+    await axios({
+      method: "post",
+      url: "http://localhost:8090/AlbumSelect",
+      contentType: "application/json",
+      data: {
+        postid: postid,
+      },
+    }).then((response) => {
+      setArtist(response.data[0].artist);
+      setAlbumname(response.data[0].albumname);
+      setImgurl(response.data[0].imgurl);
+      setRate(response.data[0].rate);
+      setSingleReview(response.data[0].singleReview);
+      setReview(response.data[0].review);
+    });
+  };
+
+  useEffect(() => {
+    getAlbum();
+  }, []);
+
+  const onSubmit = () => {
     console.log(artist, albumname, imgurl, rate, singleReview, review);
-    event.preventDefault();
     postAlbum();
-    window.location.reload();
   };
 
   return (
@@ -86,7 +109,7 @@ export default function Write() {
           }}
         />
         <div>글자 수 : {review.length}</div>
-        <input type="submit" value="제출" />
+        <input type="submit" value="수정하기" />
       </form>
     </>
   );

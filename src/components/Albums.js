@@ -17,7 +17,16 @@ export default function Albums({ album, provideData }) {
         />
         {album.rate}
       </div>
-      <button onClick={provideData}>다른 앨범 추천받기!</button>
+      <button
+        id="rec-button"
+        className={
+          document.getElementById("switch").checked == true
+            ? "rec-button-dark"
+            : "rec-button-white"
+        }
+        onClick={provideData}>
+        다른 앨범 추천받기!
+      </button>
     </div>
   );
 }

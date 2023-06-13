@@ -20,6 +20,9 @@ export default function Header({ isdark }) {
         <Link className="header-item" to="/Favorite">
           랜덤 앨범 추천
         </Link>
+        <Link className="header-item" to="/List">
+          글 목록
+        </Link>
         <Link className="header-item" to="/Write">
           앨범 추가
         </Link>

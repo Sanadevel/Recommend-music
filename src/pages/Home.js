@@ -43,8 +43,7 @@ export default function Home({ isdark, albums }) {
       <button
         className={!isdark ? "albumBtn whiteBtn" : "albumBtn darkBtn"}
         id="prevAlbumBtn"
-        onClick={prevOnClick}
-      >
+        onClick={prevOnClick}>
         &lt;
       </button>
       {curAlbum != null ? (
@@ -56,7 +55,10 @@ export default function Home({ isdark, albums }) {
             {curAlbum.artist} - {curAlbum.albumname}
           </div>
           <Link data={curAlbum} to="/Albums">
-            <img src={curAlbum.imgurl == null ? noContent : curAlbum.imgurl} className="curAlbumImg" />
+            <img
+              src={curAlbum.imgurl == null ? noContent : curAlbum.imgurl}
+              className="curAlbumImg"
+            />
           </Link>
           <div className="curAlbumRate">{curAlbum.rate}</div>
           <hr className="hr" />
@@ -71,8 +73,7 @@ export default function Home({ isdark, albums }) {
       <button
         className={!isdark ? "albumBtn whiteBtn" : "albumBtn darkBtn"}
         id="nextAlbumBtn"
-        onClick={nextOnClick}
-      >
+        onClick={nextOnClick}>
         &gt;
       </button>
     </div>
