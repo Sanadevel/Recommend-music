@@ -5,6 +5,7 @@ form {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 input,

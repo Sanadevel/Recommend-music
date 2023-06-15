@@ -38,6 +38,7 @@ export default function AlbumDetail() {
           alt="AlbumCover"
         />
         {album.rate}
+        <span className="singleReview">{album.singleReview}</span>
       </div>
     </div>
   );

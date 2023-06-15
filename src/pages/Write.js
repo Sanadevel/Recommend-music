@@ -6,7 +6,7 @@ export default function Write() {
   const [artist, setArtist] = useState("");
   const [albumname, setAlbumname] = useState("");
   const [imgurl, setImgurl] = useState("");
-  const [rate, setRate] = useState("");
+  const [rate, setRate] = useState("[ /10]");
   const [singleReview, setSingleReview] = useState("");
   const [review, setReview] = useState("");
 

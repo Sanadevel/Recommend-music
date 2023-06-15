@@ -1,5 +1,6 @@
 .albums {
   margin-left: 60px;
+  margin-bottom: 50px;
 }
 
 .album-info {
@@ -35,6 +36,7 @@ hr {
     format("woff");
   font-weight: 600;
   font-style: normal;
+  cursor: pointer;
 }
 
 .rec-button-white {
@@ -44,4 +46,8 @@ hr {
 .rec-button-dark {
   background-color: #fff;
   color: #000;
+}
+
+.singleReview {
+  font-size: 30px;
 }
