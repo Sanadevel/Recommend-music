@@ -27,6 +27,14 @@ app.use(
   })
 );
 
+app.connect("/", (req, res) => {
+  const sql =
+    "Create Table Rec_Album(artist varchar(30), albumname varchar(50), imgurl varchar(250), rate varchar(10), singleReview varchar(100), review varchar(1000), postid integer(4) NOT NULL AUTO_INCREMENT PRIMARY KEY)";
+  connection.query(sql, (e, r, f) => {
+    if (e) throw e;
+  });
+});
+
 app.get("/", async (req, res) => {
   res.send("hello");
 });
